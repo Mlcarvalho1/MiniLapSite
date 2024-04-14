@@ -9,10 +9,12 @@ const Button = ({ children, variant }) => {
         rounded-3xl
         py-2
         px-6
+        active:bg-primary-pure
+        cursor-pointer
     `, [variant])
 
     return (
-        <div className={className}>
+        <div className={className} onClick={() => null}>
             {children}
         </div>
     )

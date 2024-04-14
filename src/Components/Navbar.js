@@ -1,15 +1,17 @@
 import logo from '../assets/logo.svg'
 import Button from './button';
 
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
-    const renderNavBarItem = ({ label }) => (
-        <div className="text-white text-xl text-al">
+    const renderNavBarItem = ({ label, link }) => (
+        <Link className="text-white text-xl text-al" to={link}>
             {label}
-        </div>
+        </Link>
     )
 
     return (
-        <div className="w-full z-40">
+        <div className="w-full z-40 sticky top-0">
             <div
                 className="
                     px-4
@@ -23,17 +25,20 @@ const Navbar = () => {
                     duration-900
                     bg-primary-medium
                     max-lg:hidden
-                "		
+                "
             >
                 <img src={logo} alt="logo"/>
-                {renderNavBarItem({ label: 'Home'})}
-                {renderNavBarItem({ label: 'Gustavo Carvalho'})}
-                {renderNavBarItem({ label: 'Áreas de Atuação'})}
-                {renderNavBarItem({ label: 'Minilaparoscopia'})}
+                {renderNavBarItem({ link: '/home', label: 'Home'})}
+                {renderNavBarItem({ link: '/gustavo-carvalho', label: 'Gustavo Carvalho'})}
+                {renderNavBarItem({ link: '/areas-de-atuação', label: 'Áreas de Atuação'})}
+                {renderNavBarItem({ link: '/mini', label: 'Minilaparoscopia'})}
                <Button variant="medium">
                     Fale conosco
                </Button>
             </div>
+            {/* <div className='bg-primary-high'>
+                    rtea
+            </div> */}
         </div>
 )};
 

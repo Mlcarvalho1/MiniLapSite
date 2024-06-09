@@ -4,11 +4,22 @@ import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timel
 
 //Constants
 import academicFormations from '../Constants/AcademicFormations';
+import awards from '../Constants/Awards';
 
 //Icons
-import guts from '../assets/icons/guts.svg'
-import gustavo from '../assets/images/gustavo.png'
-import logo2 from '../assets/logo2.svg'
+import gustavo from '../assets/images/gustavo.png';
+import logo2 from '../assets/logo2.svg';
+import surgeon from '../assets/icons/surgeon.svg';
+import award from '../assets/icons/award.svg';
+import title from '../assets/icons/title.svg'
+import member from '../assets/icons/member.svg'
+
+const iconByType = {
+    surgeon: surgeon,
+    award: award,
+    title: title,
+    member: member
+}
 
 const Gustavo = () => {
     const renderAcademicFormation = useCallback(({ title, period, institution, thesisTitle, professor, scholarshipHolder }) => (
@@ -28,12 +39,30 @@ const Gustavo = () => {
         </div>
     ), []);
 
-    const renderIcon = useCallback(() => (
-        <img src={guts} alt='logo'/>
+    const renderIcon = useCallback(type => (
+        <img src={iconByType[type]} alt='logo'/>
     ), [])
 
+    const renderAward = useCallback(({ title, subtitle, description, date, icon }) => (
+        <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: '#C0DAE4', color: '#006992' }}
+            contentArrowStyle={{ borderRight: '7px solid  #C0DAE4' }}
+            date={date}
+            icon={renderIcon(icon)}
+        >
+                <h3 className="vertical-timeline-element-title">{title}</h3>
+                <h4 className="vertical-timeline-element-subtitle">{subtitle}</h4>
+                {description && (
+                    <p>
+                        {description}
+                    </p>
+                )}
+        </VerticalTimelineElement>
+    ), [renderIcon]);
+
     return (
-        <div className="mt-16 p-4 lg:px-16 items-center flex-col flex">
+        <div className="mt-16 p-4 md:px-16 items-center flex-col flex">
             <div className="flex max-sm:flex-col gap-16 mb-16 justify-center items-center">
                     <div className="flex-1 max-w-[800px]">
                         <img className="h-20 mb-4" src={logo2} alt="logo"/>
@@ -69,19 +98,7 @@ const Gustavo = () => {
                         O Dr. Gustavo Carvalho é um cirurgião de renome internacional, cuja carreira é marcada por uma busca incessante pela excelência e inovação. Desde seus primeiros anos na profissão, ele tem sido reconhecido por sua liderança em organizações médicas, recebendo prêmios e títulos prestigiosos, tanto nacional quanto internacionalmente. Sua dedicação à pesquisa e ao desenvolvimento de novas técnicas cirúrgicas, aliada à sua ética impecável e compaixão pelos pacientes, o tornam uma figura inspiradora na comunidade médica global, cujo legado de excelência e inovação continuará a influenciar e inspirar futuras gerações de profissionais de saúde.
                     </p>
                     <VerticalTimeline lineColor="#006992">
-                        <VerticalTimelineElement
-                            className="vertical-timeline-element--work"
-                            contentStyle={{ background: '#006992', color: '#fff' }}
-                            contentArrowStyle={{ borderRight: '7px solid  #006992' }}
-                            date="2011 - present"
-                            icon={renderIcon()}
-                        >
-                            <h3 className="vertical-timeline-element-title">Creative Director</h3>
-                            <h4 className="vertical-timeline-element-subtitle">Miami, FL</h4>
-                            <p>
-                            Creative Direction, User Experience, Visual Design, Project Management, Team Leading
-                            </p>
-                        </VerticalTimelineElement>
+                        {awards.map(renderAward)}
                     </VerticalTimeline>
                 </div>
         </div>

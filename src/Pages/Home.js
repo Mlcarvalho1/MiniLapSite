@@ -17,14 +17,14 @@ import Button from '../Components/button';
 
 const Home = () => {
     return (
-        <div className="mt-16 p-4 lg:px-16">
-            <div className="flex max-sm:flex-col gap-16 mb-16 justify-space-between">
+        <div className="mt-16 p-4 md:px-16">
+            <div className="flex max-sm:flex-col gap-16 mb-16 justify-center">
                 <div className="flex-1 max-w-[800px]">
                     <img className="h-20 mb-4" src={logo2} alt="logo"/>
                     <p className='mb-4 text-xl'>
                         A Clínica Cirúrgica Videolaparoscópica Gustavo Carvalho tem como objetivo desenvolver e aprimorar técnicas cirúrgicas por via Laparoscópica com a finalidade de fazer uma medicina de melhor qualidade. Através de estudos científicos, que irão servir de pilares para o conhecimento, o grupo pretende contribuir para o desenvolvimento de medidas que possam propiciar um bem-estar social à população. Com a intenção de controlar a evolução de ...
                     </p>
-                    <Button variant="low">
+                    <Button className="text-primary-medium border-primary-medium w-fit" variant="low">
                         Saiba mais
                     </Button>
                 </div>

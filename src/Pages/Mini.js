@@ -74,17 +74,6 @@ const Mini = () => {
             <Accordion label="Como é a vida após a minilaparoscopia?">
                 Em geral com poucos dias o paciente nem se lembra que foi operado. E sequer vai ver as ciatrizes.
             </Accordion>
-
-            <h2 className="w-full mt-16 mb-8 text-primary-medium text-3xl max-sm:text-2xl">HISTÓRIA DA MINILAPAROSCOPIA NO BRASIL</h2>
-            <p>
-                ESSA HISTORIA 'E LONGA'???????
-            </p>
-
-            <h2 className="w-full mb-8 text-primary-medium text-3xl max-sm:text-2xl">TRABALHOS RECENTEMENTE PUBLICADOS POR DR. GUSTAVO CARVALHO</h2>
-
-            <h3 className="w-full mb-8 text-primary-medium text-3xl max-sm:text-2xl">● Artigos</h3>
-
-            <h3 className="w-full mb-8 text-primary-medium text-3xl max-sm:text-2xl">● Apresentação e Pôsteres</h3>
         </div>
     );
 }

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 //images
 import presentation from '../assets/images/presentation.png';
@@ -16,6 +17,19 @@ import ActuationCard from '../Components/ActuationCard';
 import Button from '../Components/button';
 
 const Home = () => {
+    const navigate = useNavigate();
+
+    const onDiscoverClick = useCallback(() => {
+        navigate('/gustavo-carvalho')
+    }, [navigate]);
+
+    const onVideoClick = useCallback(() => {
+        navigate('/videolaparoscopia')
+    }, [navigate]);
+    
+    const onMiniClick = useCallback(() => {
+        navigate('/minilaparoscopia')
+    }, [navigate]);
     return (
         <div className="mt-16 p-4 md:px-16">
             <div className="flex max-sm:flex-col gap-16 mb-16 justify-center">
@@ -24,7 +38,7 @@ const Home = () => {
                     <p className='mb-4 text-xl'>
                         A Clínica Cirúrgica Videolaparoscópica Gustavo Carvalho tem como objetivo desenvolver e aprimorar técnicas cirúrgicas por via Laparoscópica com a finalidade de fazer uma medicina de melhor qualidade. Através de estudos científicos, que irão servir de pilares para o conhecimento, o grupo pretende contribuir para o desenvolvimento de medidas que possam propiciar um bem-estar social à população. Com a intenção de controlar a evolução de ...
                     </p>
-                    <Button className="text-primary-medium border-primary-medium w-fit" variant="low">
+                    <Button className="text-primary-medium border-primary-medium w-fit" variant="low" onClick={onDiscoverClick}>
                         Saiba mais
                     </Button>
                 </div>
@@ -39,10 +53,10 @@ const Home = () => {
                 <h2 className="text-4xl text-primary-medium mb-6">ÁREAS DE ATUAÇÃO</h2>
 
                 <div className="flex gap-8 max-sm:flex-col">
-                    <ActuationCard icon={Surgery} title="Cirurgia Videolaparoscópica">
+                    <ActuationCard icon={Surgery} title="Cirurgia Videolaparoscópica" onClick={onVideoClick}>
                         Cirurgia abdominal executada por meio de pequenos orifícios no abdômen do paciente. É a cirurgia de invasão mínima.
                     </ActuationCard>
-                    <ActuationCard icon={Guts} title="Cirurgia do Aparelho Digestivo">
+                    <ActuationCard icon={Guts} title="Cirurgia do Aparelho Digestivo" onClick={onMiniClick}>
                         {`• Doença do refluxo gastro-esofágico \n • Esôfago de Barrett \n • Doença da vesícula biliar`}
                     </ActuationCard>
                 </div>

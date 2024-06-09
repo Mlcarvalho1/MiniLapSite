@@ -1,4 +1,4 @@
- const ActuationCard = ({ icon, title, children}) => {
+ const ActuationCard = ({ icon, title, children, onClick }) => {
     return (
         <div
             className="
@@ -6,7 +6,9 @@
                 flex-col
                 items-center
                 justify-center
+                cursor-pointer
             "
+            onClick={onClick}
         >
             <img className="h-[120px] top-[60px] relative" src={icon} alt="guts"/>
 

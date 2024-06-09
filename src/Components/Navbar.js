@@ -13,7 +13,7 @@ import Button from './button';
 import { Link } from 'react-router-dom';
 
 const LINKS = [
-    { link: '/home', label: 'Home'},
+    { link: '/', label: 'Home'},
     { link: '/gustavo-carvalho', label: 'Gustavo Carvalho'},
     { link: '/areas-de-atuacao', label: 'Áreas de Atuação'},
     { link: '/videolaparoscopia', label: 'Videolaparoscopia'},
@@ -25,11 +25,7 @@ const Navbar = () => {
     const [open, setOpen] = useState(false);
 
     const toggleDrawer = useCallback(() => {
-        console.log(' executei')
-        setOpen(state => {
-            console.log(state)
-            return !state
-        });
+        setOpen(state => !state);
     }, [setOpen])
 
     const renderNavBarItem = useCallback(({ label, link }) => (
@@ -82,7 +78,7 @@ const Navbar = () => {
                 "
             >
                 <img src={logo} alt="logo"/>
-                {renderNavBarItem({ link: '/home', label: 'Home'})}
+                {renderNavBarItem({ link: '/', label: 'Home'})}
                 {renderNavBarItem({ link: '/gustavo-carvalho', label: 'Gustavo Carvalho'})}
                 {renderNavBarItem({ link: '/areas-de-atuacao', label: 'Áreas de Atuação'})}
                 {renderNavBarItem({ link: '/videolaparoscopia', label: 'Videolaparoscopia'})}

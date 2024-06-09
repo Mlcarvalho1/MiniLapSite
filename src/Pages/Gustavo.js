@@ -23,7 +23,7 @@ const iconByType = {
 
 const Gustavo = () => {
     const renderAcademicFormation = useCallback(({ title, period, institution, thesisTitle, professor, scholarshipHolder }) => (
-        <div className="flex gap-6">
+        <div key={`ACADEMIC_${title}`} className="flex gap-6">
             <div className="flex flex-col">
                 <div className="h-[25px] w-[25px] mt-1 rounded-full bg-primary-medium"/>
                 <div className="bg-primary-medium h-full flex-1 w-2 mx-auto my-2 rounded-full"></div>
@@ -50,6 +50,7 @@ const Gustavo = () => {
             contentArrowStyle={{ borderRight: '7px solid  #C0DAE4' }}
             date={date}
             icon={renderIcon(icon)}
+            key={`ACADEMIC_${title}_${date}`}
         >
                 <h3 className="vertical-timeline-element-title">{title}</h3>
                 <h4 className="vertical-timeline-element-subtitle">{subtitle}</h4>

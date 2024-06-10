@@ -28,8 +28,8 @@ const Gustavo = () => {
                 <div className="h-[25px] w-[25px] mt-1 rounded-full bg-primary-medium"/>
                 <div className="bg-primary-medium h-full flex-1 w-2 mx-auto my-2 rounded-full"></div>
             </div>
-            <div>
-                <h3 className="text-xl font-medium">{title}</h3>
+            <div className="pb-10">
+                <h3 className="text-xl font-medium text-primary-high">{title.toUpperCase()}</h3>
                 {period && <p className="text-lg">Período: {period}</p>}
                 {institution && <p className="text-lg">Instituição: {institution}</p>}
                 {thesisTitle && <p className="text-lg">Título da Tese: {thesisTitle}</p>}

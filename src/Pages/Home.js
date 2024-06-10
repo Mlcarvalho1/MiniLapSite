@@ -57,7 +57,11 @@ const Home = () => {
                         Cirurgia abdominal executada por meio de pequenos orifícios no abdômen do paciente. É a cirurgia de invasão mínima.
                     </ActuationCard>
                     <ActuationCard icon={Guts} title="Cirurgia do Aparelho Digestivo" onClick={onMiniClick}>
-                        {`• Doença do refluxo gastro-esofágico \n • Esôfago de Barrett \n • Doença da vesícula biliar`}
+                        • Doença do refluxo gastro-esofágico
+                        <br/> 
+                        • Esôfago de Barrett
+                        <br/>
+                        • Doença da vesícula biliar
                     </ActuationCard>
                 </div>
             </div>
